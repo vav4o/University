@@ -1,0 +1,15 @@
+﻿@using University.Entities;
+@using University.ExtensionMethods;
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["title"] = "HOME";
+}
+@{
+    User loggedUser = this.ViewContext.HttpContext.Session.GetObject<User>("loggedUser");
+}
+<span>
+    Hello,
+    @(loggedUser == null ? "Annonymous" : loggedUser.Username)
+    <br />
+</span>
+<p>This is an ASP.NET Core MVC project created by Vasil Nikolov.</p>

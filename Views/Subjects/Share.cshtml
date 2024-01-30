@@ -1,0 +1,50 @@
+﻿@using University.Entities;
+@model University.ViewModels.Subjects.ShareVM;
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["title"] = "SHARE SUBJECTS";
+}
+<hr />
+<h2>Share @Model.Subject.Title</h2>
+<hr />
+<div class="grid">
+    <form action="/Subjects/Share" method="post">
+        <input type="hidden" name="SubjectId" value="@Model.Subject.Id" />
+        @(Model.Users.Count <= 0 ? "No Users to Add" : "")
+        @foreach (User item in Model.Users)
+        {
+            <div class="row">
+                <div class="col-3">
+                    <input type="checkbox" name="UserIds" value="@item.Id" />
+                    <span>@item.Username ( @item.FirstName @item.LastName )</span>
+                </div>
+            </div>
+        }
+        <div class="row">
+            <div class="col-2">
+                <input type="submit" value="Share" />
+            </div>
+        </div>
+    </form>
+    <hr />
+    <h2>Shared with:</h2>
+    <hr />
+    <div class="row">
+        <div class="col-2">Username</div>
+        <div class="col-2">First Name</div>
+        <div class="col-2">Last Name</div>
+        <div class="col-2"></div>
+    </div>
+    @foreach (UserToSubject item in Model.Shares)
+    {
+        <div class="row">
+            <div class="col-2">@item.User.Username</div>
+            <div class="col-2">@item.User.FirstName</div>
+            <div class="col-2">@item.User.LastName</div>
+            <div class="col-2 options">
+                <a href="/Subjects/RevokeShare?Id=@item.Id"
+                onclick="return confirm('Remove Access?');">remove</a>
+            </div>
+        </div>
+    }
+</div>

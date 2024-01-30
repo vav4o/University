@@ -1,0 +1,51 @@
+﻿@using University.Entities;
+@model University.ViewModels.Subjects.IndexVM;
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["title"] = "SUBJECTS";
+}
+
+
+<table>
+    <tr>
+        <th>Subject name</th>
+        <th class="options"></th>
+    </tr>
+    @foreach (Subject item in Model.Items)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td class="options">
+                <a href="/Subjects/Share?Id=@item.Id" class="shareOption">add user</a>
+                <a href="/Subjects/Edit?Id=@item.Id">edit</a>
+                <a href="/Subjects/Delete?Id=@item.Id" onclick="return confirm('Delete Subject?');" class="deleteOption">delete</a>
+            </td>
+        </tr>
+    }
+</table>
+<div class="row">
+    @{
+        string controller = this.ViewContext.RouteData.Values["controller"].ToString();
+        string action = this.ViewContext.RouteData.Values["action"].ToString();
+    }
+    <div class="col-3 pager">
+        @for (int i = 0; i < Model.Pager.PageCount; i++)
+        {
+            <a href="/@controller/@action?Pager.Page=@(i+1)&Pager.ItemsPerPage=@Model.Pager.ItemsPerPage">
+                @(i + 1)
+            </a>
+        }
+        <script>
+            function ddlItemsPerPage_OnChange() {
+                let control = document.getElementById("ddlItemsPerPage");
+                document.location.href = "/@controller/@action?Pager.ItemsPerPage=" + control.value;
+            }
+        </script>
+        <select id="ddlItemsPerPage" onchange="ddlItemsPerPage_OnChange()">
+            <option value="10" @(Model.Pager.ItemsPerPage == 10 ? "selected" : "")>10</option>
+            <option value="25" @(Model.Pager.ItemsPerPage == 25 ? "selected" : "")>25</option>
+            <option value="50" @(Model.Pager.ItemsPerPage == 50 ? "selected" : "")>50</option>
+        </select>
+    </div>
+</div>
+<button onclick="window.location.href='/Subjects/Create';">New Subject</button>

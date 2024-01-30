@@ -1,0 +1,157 @@
+.container {
+    width: 100%;
+    display: inline-block;
+}
+
+.header .title {
+    float: left;
+}
+
+.header .welcomeMsg {
+    float: right;
+}
+
+.menu {
+    margin-top: 10px;
+    overflow: hidden;
+    background-color: #34eb55;
+    list-style-type: none;
+}
+
+    .menu li {
+        float: left;
+        text-transform: uppercase;
+        margin: 20px;
+    }
+
+        .menu li a {
+            text-decoration: none;
+            font-weight: bold;
+            color: #ffff;
+        }
+
+.grid {
+    display: inline-block;
+    width: 100%;
+}
+
+    .grid .row {
+        display: inline-block;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+        .grid .row .col-1 {
+            display: inline-block;
+            width: 150px;
+        }
+
+        .grid .row .col-2 {
+            display: inline-block;
+            width: 300px;
+        }
+
+        .grid .row .col-3 {
+            display: inline-block;
+            width: 450px;
+        }
+
+        .grid .row input[type=text] {
+            width: 300px;
+        }
+
+        .grid .row input[type=password] {
+            width: 300px;
+        }
+
+.right {
+    float: right;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+.pager a {
+    margin: 0px 3px;
+    text-decoration: none;
+    color: blue;
+}
+
+    .pager a:first-child {
+        margin-left: 30px;
+    }
+
+.pager select {
+    margin-left: 5px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 60%;
+    margin: 2%;
+    margin-bottom: 5px;
+}
+
+th {
+    text-align: left;
+    font-weight: 400;
+    font-size: 13px;
+    text-transform: uppercase;
+    padding: 10px;
+    background-color: lightgreen;
+    font-weight: bold;
+    text-align: center;
+    border: groove;
+}
+
+tr:not(:first-child):hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+td {
+    line-height: 20px;
+    font-weight: 300;
+    padding: 0 10px;
+    border: groove;
+}
+
+.options {
+    border: none;
+    background-color: white;
+}
+
+    .options a {
+        color: dodgerblue;
+    }
+
+    .options .deleteOption {
+        color: indianred;
+    }
+
+    .options .shareOption {
+        color: limegreen;
+    }
+
+button {
+    margin: 10px 30px;
+    padding: 5px;
+}
+input[type=submit]{
+    margin: 10px 30px;
+    padding: 5px;
+}
+
+.buttons {
+    margin-left: 50%;
+}
+
+fieldset {
+    width: 35%;
+}
+
+.back {
+    margin-top: 15px;
+    text-decoration: none;
+    color: dodgerblue;
+}

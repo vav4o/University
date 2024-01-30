@@ -1,0 +1,35 @@
+﻿@model University.ViewModels.Subjects.CreateVM
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["title"] = "CREATE SUBJECT";
+}
+
+<fieldset>
+    <legend>CREATE</legend>
+    <form action="/Subjects/Create" method="post">
+        @Html.HiddenFor(x => x.ProfessorId)
+        <div class="grid">
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(x => x.Title)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(x => x.Title)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(x => x.Title)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">@Html.ValidationMessage("ownerError")</div>
+            </div>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <input type="submit" class="right" value="Save" />
+                    <a class="right back" href="/Subjects/Index">Back</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</fieldset>

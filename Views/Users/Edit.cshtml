@@ -1,0 +1,65 @@
+﻿@model University.ViewModels.Users.EditVM
+@{
+    this.Layout = "/Views/Shared/_Site.cshtml";
+    ViewData["title"] = "EDIT USER";
+}
+
+<fieldset>
+    <legend>EDIT</legend>
+    <form action="/Users/Edit" method="post">
+        @Html.HiddenFor(x => x.Id)  
+        <div class="grid">
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(x => x.Username)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(x => x.Username)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(x => x.Username)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(x => x.Password)
+                </div>
+                <div class="col-2">
+                    @Html.PasswordFor(x => x.Password)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(x => x.Password)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(x => x.FirstName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(x => x.FirstName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(x => x.FirstName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    @Html.LabelFor(x => x.LastName)
+                </div>
+                <div class="col-2">
+                    @Html.TextBoxFor(x => x.LastName)
+                </div>
+                <div class="col-2">
+                    @Html.ValidationMessageFor(x => x.LastName)
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-2">
+                    <input type="submit" class="right" value="Save" />
+                    <a class="right back" href="/Users/Index">Back</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</fieldset>
